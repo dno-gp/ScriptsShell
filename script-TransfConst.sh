@@ -1,4 +1,13 @@
 #!/bin/bash
+#
+# Este script faz ajustes de formatação em arquivos contendo dados sobre
+# Transferências Constitucionais aos municípios.
+# Os dados estão disponíveis em: <https://sisweb.tesouro.gov.br/apex/f?p=2600:1>.
+# 
+# Autor		:Edson Sales <sales_eds@hotmail.com>
+# 
+#---------------------------------------------------------------------------
+
 
 cp $1 $2.bkp
 sed -i 's/\.//g' $1
