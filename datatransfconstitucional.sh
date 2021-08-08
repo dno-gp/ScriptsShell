@@ -7,6 +7,7 @@
 # Autor		:Edson Sales <sales_eds@hotmail.com>
 # 
 #---------------------------------------------------------------------------
+# TODO: o script precisa de uma linha de exemplo.
 
 
 cp $1 $2.bkp
