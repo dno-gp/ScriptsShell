@@ -12,7 +12,8 @@
 # Recebe como parâmetro um arquivo contendo dados, o qual
 # será modificado conforme as instruções contidadas no código.
 # 
-# Exemplo:
+#	Exemplo:
+#
 #		$ ./datatcepb.sh arquivo.txt
 
 ################################### CÓDIGO ###################################
