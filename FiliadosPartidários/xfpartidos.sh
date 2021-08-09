@@ -45,8 +45,7 @@ for x in $(ls *.csv); do
 done
 
 for x in $(cat ../munics.txt); do
-	grep -iw "$x" auxiliar.txt >> partidos_ms.txt	# Filtra conforme lista de
-													# municipios estabelecidos
+	grep -iw "$x" auxiliar.txt >> partidos_ms.txt	# Filtra por municipios
 done
 
 rm -r auxiliar.txt ; *.csv
