@@ -5,8 +5,8 @@
 # Autor	:Edson Sales <sales_eds@hotmail.com>
 #-----------------------------------------------------------------------------
 #	Este script baixa dados de filiados partidários disponíveis no site do
-#   TSE. Os dados podem ser acessados no link: 	<https://www.tse.jus.br/
-#						hotsites/pesquisas-eleitorais/filiacao_partidaria.htm>
+#	TSE. Os dados podem ser acessados no link: 	<https://www.tse.jus.br/
+#					hotsites/pesquisas-eleitorais/filiacao_partidaria.htm>
 #	O script formata, filtra e faz ajustes de codificação nos arquivos
 #	baixados para posterior manipulação em Sistemas Gerenciadores de Banco de
 #	Dados ou linguagem de programação.
@@ -44,7 +44,7 @@ for x in $(ls *.csv); do
 done
 
 for x in $(cat ../munics.txt); do
-	grep -iw "$x" auxiliar.txt >> partidos_ms.txt 	# Filtra conforme lista de
+	grep -iw "$x" auxiliar.txt >> partidos_ms.txt	# Filtra conforme lista de
 													# municipios estabelecidos
 done
 
