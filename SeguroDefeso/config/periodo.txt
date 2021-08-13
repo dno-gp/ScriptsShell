@@ -1,0 +1,11 @@
+# Este arquivo configura o período de 
+# referencia dos dados a serem coletados,
+# ano e mês. Cada período deve estar em
+# sua própria linha.
+# Exemplo para o período referente
+# ao mês de janeiro do ano de 2015:
+# 201501
+201701
+201702
+201703
+201704
