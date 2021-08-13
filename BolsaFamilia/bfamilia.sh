@@ -1,8 +1,19 @@
 #!/bin/bash
-
-##########################
-# PROGRAMA BOLSA FAMÍLIA #
-##########################
+#
+# bfamilia.sh - Coleta dados de beneficiários do Programa Bolsa Família - PBF.
+#
+# Autor:    Edson Sales <sales_eds@hotmail.com>
+#
+#-----------------------------------------------------------------------------
+#  Este script baixa dados de beneficiários do PBF, disponíveis no Portal
+#  da Tranparência do Governo Federal, podendo ser acessados em:
+#  <http://www.portaltransparencia.gov.br/download-de-dados>.
+# 
+#-----------------------------------------------------------------------------
+#
+# Licença: GPL.
+#
+#######################################################################CÓDIGO:
 
 if [ -e /usr/bin/figlet ]; then
 
@@ -14,10 +25,11 @@ fi
 echo "Beneficiários do Prgrama Bolsa Família."
 echo "Processo de extração de dados iniciado..."
 
+cd data/
 touch auxiliar.txt
 
-#baixar arquivos
-for x in $(cat periodo.txt)
+# Baixa arquivos
+for x in $(grep -v "#" ../config/periodo.txt)
 do echo -e "\nExecutando download..."
 
    if [ -e ./$x.zip ]; then
@@ -25,14 +37,15 @@ do echo -e "\nExecutando download..."
    echo O arquivo $x.zip já existe.
 
    else
-   wget --show-progress  http://www.portaltransparencia.gov.br/download-de-dados/bolsa-familia-pagamentos/${x}.zip
+   wget --show-progress  http://www.portaltransparencia.gov.br\
+/download-de-dados/bolsa-familia-pagamentos/${x}.zip
 
    echo -e "\nDescompactando arquivo..."
    unzip $x.zip
    echo "Arquivo descompactado."
 
    echo -e "\nFiltrando dados do  arquivo..."
-   for i in $(cat munics.txt)
+   for i in $(grep -v "#" ../config/munics.txt)
    do grep -iw "$i" *.csv  > arq.txt
       cat arq.txt >> auxiliar.txt
    done
@@ -45,7 +58,7 @@ do echo -e "\nExecutando download..."
 
 done
 
-#O trecho de código abaixo necessita ser melhorado.
+# TODO trecho de código abaixo necessita ser melhorado.
 
 echo -e "\nCriando arquivo com os resultados..."
 
@@ -67,11 +80,13 @@ sed -i 's/SOBRADO/9/g' beneficiarios.txt
 echo "Arquivo com resultados criado."
 
 echo -e "\nMovendo aquivos .zip..."
-mv *.zip ./compactados/
-mv beneficiarios.txt ./resultados/
+rm -vr *.zip
+mv beneficiarios.txt ../output/
 echo -e "\nArquivos movidos."
 
 echo -e "\nRemovendo auxiliar.txt..."
 rm -vr auxiliar.txt
 
 echo -e "\nProcesso finalizado!"
+
+##########################################################################FIM.

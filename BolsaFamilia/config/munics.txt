@@ -1,0 +1,5 @@
+# Este arquivo configura o município dos
+# beneficiários do Seguro Defeso.
+# Cada município deve ser adicionado/escrito
+# em sua própria linha.
+SOBRADO
